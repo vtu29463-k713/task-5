@@ -1,0 +1,26 @@
+# Read sorted elements from user
+nums = list(map(int, input("Enter sorted elements: ").split()))
+
+# Read target element
+target = int(input("Enter target element: "))
+
+# Binary Search Algorithm
+left = 0
+right = len(nums) - 1
+found_index = -1
+
+while left <= right:
+    mid = (left + right) // 2
+    if nums[mid] == target:
+        found_index = mid
+        break
+    elif nums[mid] < target:
+        left = mid + 1
+    else:
+        right = mid - 1
+
+# Display result
+if found_index != -1:
+    print(f"Target found at index {found_index}")
+else:
+    print("-1")
