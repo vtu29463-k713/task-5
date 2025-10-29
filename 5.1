@@ -1,0 +1,22 @@
+# Read input array
+nums = list(map(int, input("Enter sorted numbers separated by space: ").split()))
+
+# Initialize pointers and result list
+n = len(nums)
+res = [0] * n
+l = 0
+r = n - 1
+pos = n - 1
+
+# Two-pointer approach
+while l <= r:
+    if abs(nums[l]) > abs(nums[r]):
+        res[pos] = nums[l] ** 2
+        l += 1
+    else:
+        res[pos] = nums[r] ** 2
+        r -= 1
+    pos -= 1
+
+# Print the result
+print(res)
