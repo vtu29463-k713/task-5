@@ -1,0 +1,20 @@
+# Read number of elements
+n = int(input("Enter number of elements: "))
+
+# Read list elements
+A = list(map(int, input("Enter elements: ").split()))
+
+# Initialize list to store peak elements
+peaks = []
+
+# Find peak elements
+for i in range(n):
+    if i == 0 and A[i] >= A[i + 1]:
+        peaks.append(A[i])
+    elif i == n - 1 and A[i] >= A[i - 1]:
+        peaks.append(A[i])
+    elif 0 < i < n - 1 and A[i] >= A[i - 1] and A[i] >= A[i + 1]:
+        peaks.append(A[i])
+
+# Display the peak elements
+print("Peak elements:", *peaks)
